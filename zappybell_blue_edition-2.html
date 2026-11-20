@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071321">
+<title>Zappybell — Blue Edition</title>
+<style>
+:root{--bg:#071321;--panel:#10243A;--accent:#38BDF8;--accent2:#2563EB;--muted:#A9BED2;--white:#F8FAFC;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--white);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,90%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(7,10,18,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.09)}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:1.35rem;font-weight:900;letter-spacing:-.7px} .logo span{color:var(--accent)}
+nav{display:flex;align-items:center;gap:26px;font-size:.92rem;color:#E2E8F0}
+nav a:hover{color:var(--accent)}
+.menu{display:none;background:none;border:1px solid #526174;color:white;border-radius:9px;padding:8px 11px;font-size:1.1rem}
+.btn{display:inline-block;background:linear-gradient(120deg,var(--accent2),var(--accent));color:white;padding:13px 20px;border-radius:9px;font-weight:800;box-shadow:0 8px 28px color-mix(in srgb,var(--accent) 22%,transparent);transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-outline{display:inline-block;border:1px solid rgba(255,255,255,.32);padding:12px 19px;border-radius:9px;font-weight:700;margin-left:8px}
+.hero{min-height:620px;display:flex;align-items:center;background-image:linear-gradient(90deg, rgba(3,13,27,.94) 0%, rgba(3,13,27,.72) 52%, rgba(3,13,27,.35) 100%),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1900&q=85');background-size:cover;background-position:center}
+.hero-content{max-width:690px;padding:90px 0}
+.eyebrow{color:var(--accent);font-weight:800;letter-spacing:2.2px;font-size:.76rem;text-transform:uppercase;margin-bottom:18px}
+h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.04;letter-spacing:-2.8px;margin-bottom:22px}
+.hero p{font-size:1.12rem;color:#D8E2EE;max-width:590px;margin-bottom:30px}
+section{padding:88px 0}
+.section-head{max-width:680px;margin-bottom:38px}
+.section-head .eyebrow{margin-bottom:10px}
+h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.12;letter-spacing:-1.3px;margin-bottom:14px}
+.section-head p,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--panel);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:25px}
+.card .symbol{width:46px;height:46px;display:grid;place-items:center;background:rgba(255,255,255,.08);border-radius:12px;color:var(--accent);font-size:1.35rem;margin-bottom:17px}
+.card h3{font-size:1.15rem;margin-bottom:9px}
+.card p{color:var(--muted);font-size:.95rem}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.photo{min-height:390px;border-radius:18px;background:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1100&q=85') center/cover;position:relative;overflow:hidden}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,10,20,.32),transparent 60%)}
+.trust-points{display:grid;gap:15px;margin:25px 0}
+.trust-item{display:flex;gap:13px;align-items:flex-start}
+.check{color:var(--accent);font-weight:900;font-size:1.2rem}
+.work-card{overflow:hidden;padding:0}
+.work-image{height:190px;background-size:cover;background-position:center}
+.work-card:nth-child(1) .work-image{background-image:url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=80')}
+.work-card:nth-child(2) .work-image{background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80')}
+.work-card:nth-child(3) .work-image{background-image:url('https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80')}
+.work-info{padding:22px}
+.tag{display:inline-block;color:var(--accent);font-size:.74rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+.contact-box{background:linear-gradient(135deg,var(--panel),rgba(20,25,45,.92));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(25px,5vw,55px);display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:14px 15px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.22);color:white;font:inherit}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+form button{border:0;cursor:pointer;font:inherit}
+.note{font-size:.78rem;color:var(--muted);margin-top:7px}
+footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.09);color:var(--muted);font-size:.88rem}
+.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:760px){
+ .menu{display:block} nav{display:none;position:absolute;top:72px;left:0;right:0;background:#0b1220;padding:20px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid #334155}
+ nav.open{display:flex} .nav-cta{display:none}
+ .hero{min-height:590px;background-position:58% center} .hero-content{padding:75px 0}
+ .btn-outline{margin:12px 0 0;display:inline-block}
+ .grid{grid-template-columns:1fr} .about-grid,.contact-box{grid-template-columns:1fr}
+ .photo{min-height:270px} section{padding:66px 0}
+ h1{letter-spacing:-1.6px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="logo" href="#home">ZAPPY<span>BELL</span></a>
+  <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+  <nav id="nav">
+   <a href="#home">Home</a><a href="#services">Services</a><a href="#about">About</a><a href="#work">Our work</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="btn nav-cta" href="#contact">Let's talk</a>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="wrap"><div class="hero-content">
+  <div class="eyebrow">Web design • Digital presence • BLUE EDITION</div>
+  <h1>Make your business impossible to ignore.</h1>
+  <p>We create clean, modern websites that help businesses show up professionally, explain what they offer, and make it easier for customers to get in touch.</p>
+  <a class="btn" href="#contact">Let's build your website</a>
+  <a class="btn-outline" href="#work">See our work</a>
+ </div></div>
+</section>
+
+<section id="services">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">What we do</div><h2>Good design. Clear message. Better first impressions.</h2><p>Practical website solutions designed to make your business look professional and easy to reach.</p></div>
+  <div class="grid">
+   <article class="card"><div class="symbol">✦</div><h3>Business websites</h3><p>A professional online home where customers can learn about your business and what you offer.</p></article>
+   <article class="card"><div class="symbol">▣</div><h3>Landing pages</h3><p>Focused pages for a product, service, promotion, or campaign—with a clear next step.</p></article>
+   <article class="card"><div class="symbol">↗</div><h3>Mobile-friendly design</h3><p>Layouts designed to work smoothly on phones, tablets, and desktop screens.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="wrap about-grid">
+  <div class="photo" role="img" aria-label="A team collaborating around a laptop"></div>
+  <div>
+   <div class="eyebrow">Why Zappybell?</div>
+   <h2>A website should build confidence before the first conversation.</h2>
+   <p class="muted">We believe a good website should be clear, useful, and easy to navigate. Our focus is helping small businesses present their services with confidence and give customers a simple way to reach them.</p>
+   <div class="trust-points">
+    <div class="trust-item"><span class="check">✓</span><div><strong>Clear communication</strong><p class="muted">We discuss your goals and keep the process straightforward.</p></div></div>
+    <div class="trust-item"><span class="check">✓</span><div><strong>Mobile-first thinking</strong><p class="muted">We pay attention to the phone experience, where many customers browse.</p></div></div>
+    <div class="trust-item"><span class="check">✓</span><div><strong>Honest process</strong><p class="muted">You see the work, review it, and agree on the details before launch.</p></div></div>
+   </div>
+   <a class="btn" href="#contact">Talk about your project</a>
+  </div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="wrap">
+  <div class="section-head"><div class="eyebrow">Selected concepts</div><h2>Ideas brought to the screen.</h2><p>Some examples are practice concepts created to demonstrate design direction. They are not presented as paid client projects.</p></div>
+  <div class="grid">
+   <article class="card work-card"><div class="work-image"></div><div class="work-info"><span class="tag">Concept project</span><h3>Petals & Gifts</h3><p class="muted">A warm, welcoming website concept for a flower and gift business.</p></div></article>
+   <article class="card work-card"><div class="work-image"></div><div class="work-info"><span class="tag">Design direction</span><h3>Business landing page</h3><p class="muted">A clean layout to introduce a service and guide visitors to contact.</p></div></article>
+   <article class="card work-card"><div class="work-image"></div><div class="work-info"><span class="tag">Coming soon</span><h3>More projects</h3><p class="muted">New website concepts and completed work will be added here.</p></div></article>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <div class="contact-box">
+   <div><div class="eyebrow">Start a conversation</div><h2>Have a business idea? Let's talk.</h2><p class="muted">Tell us a little about your business and the website you have in mind. We'll get back to you to discuss the next steps.</p></div>
+   <div>
+    <form id="contactForm">
+     <input id="clientName" type="text" placeholder="Your name" required>
+     <input id="businessName" type="text" placeholder="Business name (optional)">
+     <textarea id="message" placeholder="What kind of website do you need?" required></textarea>
+     <button class="btn" type="submit">Send a WhatsApp message</button>
+    </form>
+    <p class="note">Before publishing, replace the WhatsApp placeholder in the code with your dedicated business number, including country code. The form opens WhatsApp with your message ready to send.</p>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> Zappybell. Built with purpose.</span><span>Let's make your online presence count.</span></div></footer>
+<script>
+const menu=document.getElementById('menu');
+const nav=document.getElementById('nav');
+menu.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const phone='REPLACE_WITH_YOUR_NUMBER';
+ if(phone==='REPLACE_WITH_YOUR_NUMBER'){alert('Add your business WhatsApp number in the code before using this form.');return;}
+ const name=document.getElementById('clientName').value;
+ const business=document.getElementById('businessName').value;
+ const message=document.getElementById('message').value;
+ const text=`Hello Zappybell! My name is ${name}. Business: ${business || 'Not specified'}. Project: ${message}`;
+ window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(text),'_blank');
+});
+</script>
+</body>
+</html>
